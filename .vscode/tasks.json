@@ -7,9 +7,9 @@
       "type": "process",
       "args": [
         "build",
-        "${workspaceFolder}/BlazingPizza.csproj",
+        "${workspaceFolder}/BlazingPizza.sln",
         "/property:GenerateFullPaths=true",
-        "/consoleloggerparameters:NoSummary"
+        "/consoleloggerparameters:NoSummary;ForceNoAlign"
       ],
       "problemMatcher": "$msCompile"
     },
@@ -19,9 +19,9 @@
       "type": "process",
       "args": [
         "publish",
-        "${workspaceFolder}/BlazingPizza.csproj",
+        "${workspaceFolder}/BlazingPizza.sln",
         "/property:GenerateFullPaths=true",
-        "/consoleloggerparameters:NoSummary"
+        "/consoleloggerparameters:NoSummary;ForceNoAlign"
       ],
       "problemMatcher": "$msCompile"
     },
@@ -32,9 +32,8 @@
       "args": [
         "watch",
         "run",
-        "${workspaceFolder}/BlazingPizza.csproj",
-        "/property:GenerateFullPaths=true",
-        "/consoleloggerparameters:NoSummary"
+        "--project",
+        "${workspaceFolder}/BlazingPizza.sln"
       ],
       "problemMatcher": "$msCompile"
     }
