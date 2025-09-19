@@ -1,3 +1,6 @@
+@using System;
+@using System.Globalization;
+
 @page "/"
 @inject HttpClient HttpClient
 @inject NavigationManager NavigationManager
@@ -15,7 +18,7 @@
           <div class="pizza-info">
           <span class="title">@special.Name</span>
           @special.Description
-          <span class="price">@special.GetFormattedBasePrice()</span>
+          <span class="price" style="--currency:'@NumberFormatInfo.CurrentInfo.CurrencySymbol'">@special.GetFormattedBasePrice()</span>
           </div>
         </li>
       }
@@ -55,7 +58,7 @@
     }
 
     <div class="order-total @(order.Pizzas.Any() ? "" : "hidden")">
-        Total:
+        Total: 
         <span class="total-price">@order.GetFormattedTotalPrice()</span>
         <a href="checkout" class="@(OrderState.Order.Pizzas.Count == 0 ? "btn btn-warning disabled" : "btn btn-warning")">
             Order >

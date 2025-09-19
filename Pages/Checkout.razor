@@ -1,3 +1,6 @@
+@using System;
+@using System.Globalization;
+
 @page "/checkout"
 @inject OrderState OrderState
 @inject HttpClient HttpClient
@@ -14,7 +17,7 @@
                     <strong>
                         @(pizza.Size)"
                         @pizza.Special.Name
-                        (£@pizza.GetFormattedTotalPrice())
+                        @(new RegionInfo(CultureInfo.CurrentCulture.Name).CurrencySymbol)@pizza.GetFormattedTotalPrice())
                     </strong>
                 </p>
             }
@@ -22,7 +25,7 @@
             <p>
                 <strong>
                     Total price:
-                    £@Order.GetFormattedTotalPrice()
+                    @NumberFormatInfo.CurrentInfo.CurrencySymbol @Order.GetFormattedTotalPrice()
                 </strong>
             </p>
         </div>

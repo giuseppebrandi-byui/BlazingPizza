@@ -1,3 +1,6 @@
+@using System;
+@using System.Globalization;
+
 @page "/myorders/{orderId:int}"
 @inject NavigationManager NavigationManager
 @inject HttpClient HttpClient
@@ -40,7 +43,7 @@
                           <strong>
                               @(pizza.Size)"
                               @pizza.Special.Name
-                              (£@pizza.GetFormattedTotalPrice())
+                              @(new RegionInfo(CultureInfo.CurrentCulture.Name).CurrencySymbol)@pizza.GetFormattedTotalPrice()
                           </strong>
                       </p>
                   }
